@@ -35,11 +35,14 @@ QUnit.test("test value sustraction", function(assert)
 
 QUnit.test("test value sustraction equal Zéro", function(assert)
 {
-	var m1=new money(0,"EUR");
-  var m2=new money(0,"CHF");
+	
+		var m1=new money(0,"EUR");
+  		var m2=new money(0,"CHF");
+	
 	assert.throws(function(assert) {var m3=MoneyOps.sus(m1,m2)}, moneyInforEqualZero, "ValueEqualZero m1 ==0 OU m2 == 0 OU les Deux");
-}
-);
+
+
+});
 
 QUnit.test("test simple sus", function(assert)
 {
@@ -125,3 +128,51 @@ QUnit.test("test multi devise add", function(assert)
 									"Devises Incompatibles");
 }
 );
+/**/
+QUnit.test("test equals", function(assert)
+{
+	assert.expect(1);
+
+	var m1eur=new money(2,"eur");
+	sinon.stub(m1eur,"getValue").returns(2);
+	sinon.stub(m1eur,"getCurrency").returns("EUR");
+
+	var m1EUR=sinon.stub(new money(1,"EUR"));
+	m1EUR.getValue.returns(1);
+	m1EUR.getCurrency.returns("EUR");
+
+
+	var m1EUR2=sinon.stub(new money(1,"EUR"));
+	m1EUR.getValue.returns(1);
+	m1EUR.getCurrency.returns("EUR");
+
+	var m1CHF=sinon.stub(new money());
+	m1CHF.getValue.returns(1);
+	m1CHF.getCurrency.returns("CHF");
+
+	
+
+
+
+	assert.deepEqual(m1EUR,m1EUR2);
+}
+);
+
+QUnit.test("test equals avec sans stub", function(assert)
+{
+	assert.expect(1);
+
+	var m1eur=new money(1,"eur");
+	sinon.stub(m1eur,"getValue").returns(1);
+	sinon.stub(m1eur,"getCurrency").returns("EUR");
+
+	var m1EUR=sinon.stub(new money(1,"EUR"));
+	m1EUR.getValue.returns(1);
+	m1EUR.getCurrency.returns("EUR");
+
+	//assert.ok(m1eur.equals(m1EUR),"1 EUR égal à 1 EUR");
+	//assert.ok(m1EUR.equals(m1eur),"1 EUR égal à 1 eur");
+	assert.deepEqual(m1eur,m1EUR);
+
+});
+

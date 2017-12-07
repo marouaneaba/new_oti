@@ -18,7 +18,7 @@ QUnit.test("test_computeresults", function(assert)
         var fixtureNode=document.getElementById("qunit-fixture");
         fixtureNode.innerHTML=fixture;
 
-        spy(window,"alert");
+        sinon.spy(window,"alert");
         assert.ok(window.alert.calledOne);
 
 }
