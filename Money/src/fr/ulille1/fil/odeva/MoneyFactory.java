@@ -16,7 +16,7 @@ public class MoneyFactory {
   private static MoneyFactory defaultInstance;
   private static Map<String,Float> defaultCurrencies;
   private Map<String,Float> currencies;
-
+  
   static {
     defaultCurrencies=new HashMap<>();
 		defaultCurrencies.put("EUR",new Float(1.));
@@ -28,21 +28,21 @@ public class MoneyFactory {
   private MoneyFactory() {
     this(defaultCurrencies);
   }
-
-
-
+  
+  
+  
   private MoneyFactory(Map<String,Float> currencies) {
     this.currencies=new HashMap<>();
     this.currencies.putAll(currencies);
   }
-
+  
   public static MoneyFactory  getDefaultFactory() {
     return defaultInstance;
   }
 
   public Money createMoney(int value, String currency) throws UnexistingCurrencyException
   {
-
+	  
     return new Money(value,currency);
   }
 
