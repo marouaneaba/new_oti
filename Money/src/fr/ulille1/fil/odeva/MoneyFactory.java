@@ -13,36 +13,36 @@ import java.util.Map;
  * @author marius
  */
 public class MoneyFactory {
-  private static MoneyFactory _defaultInstance;
-  private static Map<String,Float> _defaultCurrencies;
+  private static MoneyFactory defaultInstance;
+  private static Map<String,Float> defaultCurrencies;
   private Map<String,Float> currencies;
-  
-  static {
-    _defaultCurrencies=new HashMap<String,Float>();
-		_defaultCurrencies.put("EUR",new Float(1.));
-		_defaultCurrencies.put("CHF",new Float(1/1.2));
 
-    _defaultInstance = new MoneyFactory();
+  static {
+    defaultCurrencies=new HashMap<>();
+		defaultCurrencies.put("EUR",new Float(1.));
+		defaultCurrencies.put("CHF",new Float(1/1.2));
+
+    defaultInstance = new MoneyFactory();
   }
 
   private MoneyFactory() {
-    this(_defaultCurrencies);
+    this(defaultCurrencies);
   }
-  
-  
-  
+
+
+
   private MoneyFactory(Map<String,Float> currencies) {
-    this.currencies=new HashMap<String,Float>();
+    this.currencies=new HashMap<>();
     this.currencies.putAll(currencies);
   }
-  
+
   public static MoneyFactory  getDefaultFactory() {
-    return _defaultInstance;
+    return defaultInstance;
   }
 
   public Money createMoney(int value, String currency) throws UnexistingCurrencyException
   {
-	  
+
     return new Money(value,currency);
   }
 

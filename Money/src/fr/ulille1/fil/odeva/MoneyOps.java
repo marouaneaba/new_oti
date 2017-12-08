@@ -15,16 +15,17 @@ public class MoneyOps {
   /**
    * Add moneys having the same currency
   */
-  
+  private MoneyFactory(){}
+
   public static void setMoneyFactory(MoneyFactory injectedMF){
 	  mf = injectedMF;
   }
-  public static Money simpleAdd(Money m1, Money m2) throws NullPointerException,IncompatibleCurrencyException, UnexistingCurrencyException
+  public static Money simpleAdd(Money m1, Money m2) throws UnexistingCurrencyException
   {
-	  if(m1.getCurrency()!=m2.getCurrency())
+	  if(m1.getCurrency()!=m2.getCurrency()){
 		  throw new IncompatibleCurrencyException(m1.getCurrency(), m2.getCurrency());
-	  
-    Money m=mf.createMoney(m1.getValue()+m2.getValue(),m1.getCurrency());
-    return m;
+	  }
+    return mf.createMoney(m1.getValue()+m2.getValue(),m1.getCurrency());
+
   }
 }
