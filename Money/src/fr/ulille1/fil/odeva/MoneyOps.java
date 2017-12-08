@@ -15,7 +15,7 @@ public class MoneyOps {
   /**
    * Add moneys having the same currency
   */
-  public MoneyOps(){}
+  private MoneyOps(){}
   public static void setMoneyFactory(MoneyFactory injectedMF){
 	  mf = injectedMF;
   }
@@ -23,8 +23,8 @@ public class MoneyOps {
   {
 	  if(m1.getCurrency()!=m2.getCurrency())
 		  throw new IncompatibleCurrencyException(m1.getCurrency(), m2.getCurrency());
-	  
+
 	  return mf.createMoney(m1.getValue()+m2.getValue(),m1.getCurrency());
-    
+
   }
 }
