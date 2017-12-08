@@ -41,6 +41,7 @@ public class Money {
 	@Override
   public int hashCode() {
     /* ... */
+		return 1;
   }
 
 	public boolean _equals(Object o){
