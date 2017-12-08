@@ -1,0 +1,5 @@
+projectKey=fil:m2eserv
+serverUrl=http://localhost:9000
+dashboardUrl=http://localhost:9000/dashboard/index/fil:m2eserv
+ceTaskId=AWA29x6GTCF2waNVCuWG
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWA29x6GTCF2waNVCuWG

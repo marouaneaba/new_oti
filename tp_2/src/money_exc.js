@@ -43,8 +43,11 @@ CurrencySupTrois.prototype.toString=function (){
 		return "Currency et supérieur à Trois";
 }
 
-function ErreurCreationMoney(){}
+function ErreurCreationMoney(erreur){
+
+	this.erreur = erreur;
+}
 
 ErreurCreationMoney.prototype.toString=function (){
-		return "Null Money or currency supérieur de 3 caractére";
+		return "Error création Money "+this.erreur;
 }

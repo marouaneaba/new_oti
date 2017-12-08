@@ -16,9 +16,7 @@ MoneyOps.add = function(m1,m2){
 
 MoneyOps.sus = function(m1,m2){
 
-	if(m1 === null || m2 === null){
-		throw new MoneyNullValueOrNullCurrency();
-	}else if(m1.getValue() < m2.getValue())
+	if(m1.getValue() < m2.getValue())
 		throw new ErrorValue();
 	else if(m1.getValue()<=0 ||m2.getValue()<=0)
 		throw new moneyInforEqualZero();
