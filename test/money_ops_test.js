@@ -35,10 +35,10 @@ QUnit.test("test value sustraction", function(assert)
 
 QUnit.test("test value sustraction equal Zéro", function(assert)
 {
-	
+
 		var m1=new money(0,"EUR");
   		var m2=new money(0,"CHF");
-	
+
 	assert.throws(function(assert) {var m3=MoneyOps.sus(m1,m2)}, moneyInforEqualZero, "ValueEqualZero m1 ==0 OU m2 == 0 OU les Deux");
 
 
@@ -150,7 +150,7 @@ QUnit.test("test equals", function(assert)
 	m1CHF.getValue.returns(1);
 	m1CHF.getCurrency.returns("CHF");
 
-	
+
 
 
 
@@ -175,4 +175,3 @@ QUnit.test("test equals avec sans stub", function(assert)
 	assert.deepEqual(m1eur,m1EUR);
 
 });
-

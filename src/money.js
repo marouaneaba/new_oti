@@ -5,10 +5,10 @@ var money= (function(){
 			this.v=v;
 			this.curr=curr.toUpperCase();
 		}else if( v === null || curr=== null || v < 0 ){
-			
+
 			throw new MoneyNullValueOrNullCurrency();
 		}else if(curr !== undefined && curr.length > 3){
-			
+
 			throw new CurrencySupTrois();
 		}else {
 			this.v=null;

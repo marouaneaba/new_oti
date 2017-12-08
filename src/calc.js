@@ -35,9 +35,6 @@ calc.prototype.computeResult=function (form) {
                     this.message="Result : "+(res.toString())+"";
                 }
 
-                //this.message=e.toString();
-                //this.erreur = true;
-                //window.alert(e.toString());
 
         }catch (e) {
                 this.message=e.toString();
